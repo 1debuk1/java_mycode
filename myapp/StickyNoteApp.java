@@ -17,26 +17,23 @@ class StickyNote extends JFrame {
     private JTextArea textArea;
 
     public StickyNote() {
-        // Set up the frame
         setTitle("Sticky Note");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true); // Keep the window always on top
-        setUndecorated(true); // Remove title bar for cleaner look
+        setAlwaysOnTop(true);
+        setUndecorated(true); 
         setLayout(new BorderLayout());
 
-        // Create a movable title bar
         JPanel titleBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         titleBar.setBackground(Color.YELLOW);
 
-        // Close button
+        
         JButton closeButton = new JButton("X");
         closeButton.setFocusPainted(false);
         closeButton.setBorderPainted(false);
         closeButton.setContentAreaFilled(false);
         closeButton.addActionListener(e -> dispose());
 
-        // Add drag functionality to the title bar
         titleBar.addMouseMotionListener(new MouseAdapter() {
             Point dragStart = null;
 
@@ -71,7 +68,7 @@ class StickyNote extends JFrame {
         textArea.setFont(new Font("Arial", Font.PLAIN, 16));
         textArea.setBackground(new Color(255, 255, 200));
 
-        // Add components to the frame
+       
         add(titleBar, BorderLayout.NORTH);
         add(new JScrollPane(textArea), BorderLayout.CENTER);
     }
